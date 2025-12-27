@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vaishnavi 🤍</title>
+
+<style>
+/* ===== BASE ===== */
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  background:#ffd6e5;
+  color:#5a0028;
+  text-align:center;
+  transition:.6s;
+}
+body.gray{
+  filter:grayscale(100%);
+  background:#e6e6e6;
+  color:#333;
+}
+h1{margin:16px 0;font-size:28px}
+.section{
+  background:#fff;
+  margin:16px auto;
+  padding:16px;
+  width:92%;
+  max-width:520px;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,.1);
+}
+button{
+  background:#ff5fa2;
+  color:#fff;
+  border:none;
+  padding:10px 16px;
+  border-radius:20px;
+  font-size:15px;
+  margin:6px;
+}
+button.secondary{background:#ddd;color:#333}
+.toggle{font-size:13px;margin-bottom:6px}
+
+/* ===== CHAT ===== */
+.chat{background:#f4f4f4;border-radius:16px;padding:12px;text-align:left}
+.msg{background:#e0e0e0;display:inline-block;padding:8px 12px;border-radius:14px;margin:6px 0;font-size:14px}
+.typing{font-size:12px;opacity:.6}
+
+/* ===== JARS ===== */
+.jar,.gift{font-size:64px;cursor:pointer}
+
+/* ===== MODAL / GALLERY ===== */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999}
+.modal .box{background:#fff0f6;margin:6% auto;width:92%;max-width:520px;padding:14px;border-radius:18px}
+.modal img{width:100%;border-radius:12px;margin:8px 0}
+
+/* ===== POPUP ===== */
+.popup{
+  display:none;position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  background:#fff0f6;padding:18px;border-radius:18px;
+  width:88%;max-width:420px;z-index:10000
+}
+
+/* ===== CAT PAW CURSOR ===== */
+.cursor{position:fixed;font-size:22px;pointer-events:none;z-index:20000}
+
+/* ===== CONFETTI ===== */
+.confetti{
+  position:fixed;top:-10px;font-size:18px;
+  animation:confettiFall 3.5s linear forwards;
+  z-index:15000
+}
+@keyframes confettiFall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+</style>
+</head>
+
+<body class="gray">
+
+<div class="cursor">🐾</div>
+
+<h1>For Vaishnavi 🤍</h1>
+<p style="font-size:13px;opacity:.8">You bring colors to my life.</p>
+
+<div class="toggle">
+  <label><input type="checkbox" onchange="toggleTheme()"> With You</label>
+</div>
+
+<!-- ⏳ LOVE TIMER -->
+<div class="section">
+  <h3>⏳ Since We Became Us</h3>
+  <p style="font-size:14px;opacity:.75">Every second with you matters 🤍</p>
+  <div id="timer" style="font-size:18px;font-weight:600;">Loading…</div>
+</div>
+
+<!-- 💌 APOLOGY LETTER -->
+<div class="section">
+<h3>💌 An Apology From My Heart</h3>
+<p style="text-align:left;font-size:14px;line-height:1.6;white-space:pre-line;">
+My Dear Vaishnavi,
+
+I know maine galti ki hai aur main apni saari galti accept karta hoon.
+Please Vaishnavi mujhe maaf kar do. Mera intention kabhi bhi tumhe hurt karna nahi tha.
+
+Main tere rude behaviour se gusse mein aa gaya tha,
+lekin mujhe pata hai mujhe aisa nahi karna chahiye tha.
+Teri story pe Anush ka comment dekh ke main sach mein toot gaya tha.
+
+Maine Antrika ke saath koi chugli nahi ki thi.
+Main sirf itna kehne gaya tha ki apne bf ko control kare.
+Uske baad main tumse baat karna chahta tha,
+lekin tera behaviour mujhe bahut zyada hurt kar gaya.
+
+Meri wajah se agar teri friendship toot gayi ho,
+toh main dil se maafi maangta hoon.
+Please Vaishnavi, ek last chance de do.
+
+I swear, I will treat you like a queen.
+</p>
+</div>
+
+<!-- ❤️ LOVE LETTER -->
+<div class="section">
+<h3>❤️ My Love For You</h3>
+<p style="text-align:left;font-size:14px;line-height:1.6;white-space:pre-line;">
+Before you, I was just existing.
+With you, I started living.
+
+You are my best friend, my safe place.
+My love for you is bigger than any misunderstanding.
+
+Your smile is my weakness.
+Your happiness is my priority.
+
+You are my forever. 💐🛐
+</p>
+</div>
+
+<!-- 📖 POETRY -->
+<div class="section">
+<h3>📖 Poetry For You</h3>
+<p style="text-align:left;font-size:14px;line-height:1.6;white-space:pre-line;">
+I miss the smile upon your face,
+I miss your warm and loving embrace.
+I promise not to hurt you again.
+
+Vaishnavi, you are my heart and soul.
+I miss you every single day.
+
+– Yours, Devulla
+</p>
+</div>
+
+<!-- 💬 CHAT STORY -->
+<div class="section">
+<h3>💬 Things I Never Said</h3>
+<div class="chat" id="chat"></div>
+</div>
+
+<!-- 🫙 PROMISE JAR -->
+<div class="section">
+<h3>🫙 Promise Jar</h3>
+<div class="jar" onclick="openPromise()">🫙</div>
+</div>
+
+<!-- 📸 PHOTOS JAR -->
+<div class="section">
+<h3>📸 Photos Jar</h3>
+<button onclick="openAlbum()">Open Memories</button>
+</div>
+
+<div class="modal" id="album">
+  <div class="box">
+    <h4>💑 Us Together</h4>
+    <img src="https://i.ibb.co/WvZCqXrJ/f050c675-8b43-4e06-be87-a6d71669c771-d146cfb7-252f-48cb-ba3c-9da826f0f173-2.jpg">
+    <h4>🌸 Vaishnavi</h4>
+    <img src="https://i.ibb.co/xbLT1BP/Screenshot-20251227-063846-Photos.jpg">
+    <img src="https://i.ibb.co/Txmdv3Kr/Screenshot-20251227-145012-Gallery.jpg">
+    <img src="https://i.ibb.co/RkN4dd2P/Screenshot-20251227-145038-Gallery.jpg">
+    <button onclick="closeAlbum()">Close</button>
+  </div>
+</div>
+
+<!-- 💖 FORGIVE -->
+<div class="section">
+<h3>💖 How do you feel?</h3>
+<button onclick="forgive()">I forgive you</button>
+<button class="secondary" onclick="notYet()">Not yet</button>
+</div>
+
+<!-- 🎁 COUPON -->
+<div class="section">
+<h3>🎁 A Small Surprise</h3>
+<div class="gift" onclick="openCoupon()">🎁</div>
+</div>
+
+<div class="popup" id="popup"></div>
+
+<!-- 🎵 MUSIC -->
+<audio id="sad" loop>
+<source src="https://cdn.pixabay.com/audio/2022/04/04/audio_4c2a1a.mp3">
+</audio>
+<audio id="love" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_2c8b9b3b1c.mp3">
+</audio>
+
+<script>
+/* CURSOR */
+const cur=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px";
+});
+
+/* TIMER */
+const startDate=new Date("August 2, 2025 00:00:00").getTime();
+function updateTimer(){
+const now=new Date().getTime();let d=now-startDate;
+if(d<0){timer.innerText="Waiting for our forever 🤍";return;}
+const s=Math.floor(d/1000),m=Math.floor(s/60),h=Math.floor(m/60),days=Math.floor(h/24);
+timer.innerHTML=`${days} days<br>${h%24} hours ${m%60} minutes ${s%60} seconds`;
+}
+setInterval(updateTimer,1000);updateTimer();
+
+/* CHAT */
+const lines=[
+"I should have stopped you that day.",
+"I should have listened instead of reacting.",
+"I am really sorry.",
+"You always mattered more than my ego."
+];
+let i=0;const chat=document.getElementById("chat");
+function nextLine(){
+if(i>=lines.length)return;
+const t=document.createElement("div");t.className="typing";t.innerText="typing…";
+chat.appendChild(t);
+setTimeout(()=>{t.remove();const m=document.createElement("div");
+m.className="msg";m.innerText=lines[i++];chat.appendChild(m);nextLine();},1200);
+}
+setTimeout(nextLine,800);
+
+/* PROMISE */
+const promises=[
+"I promise to listen more and speak less.",
+"I promise to fix problems, not win arguments.",
+"I promise to cherish every little moment.",
+"I promise to understand before reacting.",
+"I promise to keep my ego away from us."
+];
+function openPromise(){
+show("💗 A Promise",promises[Math.floor(Math.random()*promises.length)]);
+}
+
+/* CONFETTI */
+function launchConfetti(){
+const e=["🎉","🎊","💖","✨","🌸","💗"];
+for(let i=0;i<35;i++){
+const c=document.createElement("div");
+c.className="confetti";c.innerText=e[Math.floor(Math.random()*e.length)];
+c.style.left=Math.random()*100+"vw";
+c.style.animationDuration=(Math.random()*2+2)+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),4000);
+}
+}
+
+/* FORGIVE */
+function forgive(){
+launchConfetti();
+show("🎉 Thank You","Thank you for giving us another chance. I respect your feelings and your space.");
+}
+function notYet(){
+show("🤍 I Understand","Take your time. I respect how you feel.");
+}
+
+/* COUPON */
+function openCoupon(){
+show("🎟️ Love Coupon","Valid for One Long Hug 🤍<br>Unlimited Momos Date 🥟<br><small>Redeemable anytime. Lifetime validity.</small>");
+}
+
+/* MODAL */
+function openAlbum(){album.style.display="block";}
+function closeAlbum(){album.style.display="none";}
+
+/* POPUP */
+function show(t,m){
+popup.innerHTML=`<h3>${t}</h3><p>${m}</p><button onclick="popup.style.display='none'">Close</button>`;
+popup.style.display="block";
+}
+
+/* THEME */
+function toggleTheme(){
+document.body.classList.toggle("gray");
+sad.pause();love.pause();
+document.body.classList.contains("gray")?sad.play():love.play();
+}
+</script>
+
+</body>
+</html>
