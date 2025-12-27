@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>apology.url.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#fff;
+    color:#222;
+    text-align:center;
+}
+
+section{
+    padding:40px 20px;
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+h2{
+    margin-top:40px;
+}
+
+p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* CHAT */
+.chat{
+    background:#f2f2f2;
+    border-radius:12px;
+    padding:20px;
+    text-align:left;
+}
+.msg{
+    background:#dcf8c6;
+    padding:10px 14px;
+    border-radius:10px;
+    margin:10px 0;
+    width:fit-content;
+}
+
+/* TIMER */
+.timer{
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* GALLERY */
+.gallery img{
+    width:100%;
+    max-width:260px;
+    border-radius:10px;
+    margin:10px;
+}
+
+/* COUPON */
+.coupon-box{
+    margin-top:30px;
+}
+.gift{
+    font-size:50px;
+    cursor:pointer;
+}
+.coupon{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border:2px dashed #333;
+}
+
+/* CONFETTI */
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    background:red;
+    animation:fall 3s linear infinite;
+}
+@keyframes fall{
+    from{top:-10px;}
+    to{top:100vh;}
+}
+</style>
+</head>
+
+<body>
+
+<section>
+<h1>apology.url.com</h1>
+<p>A romantic apology website for my ex gf <b>Vaishnavi</b></p>
+</section>
+
+<section>
+<h2>⏳ Since We Drifted Apart</h2>
+<div class="timer" id="timer"></div>
+</section>
+
+<section>
+<h2>💬 Things I Never Said</h2>
+<div class="chat">
+<div class="msg">I should have stopped you that day.</div>
+<div class="msg">I am really sorry.</div>
+<div class="msg">Meri galti thi, pura maan ke maanta hoon.</div>
+<div class="msg">Ego aur attitude ne sab bigaad diya.</div>
+<div class="msg">Bas ek last chance… dil se maang raha hoon.</div>
+</div>
+</section>
+
+<section>
+<h2>📝 My Apology</h2>
+<p>
+I know words cannot undo pain.  
+But silence hurts more.  
+I hurt you when I should have protected you.  
+If love ever meant anything to us,  
+then this apology is not weakness —  
+it is honesty.
+</p>
+</section>
+
+<section>
+<h2>🌸 Poetry I Wrote For You</h2>
+<p>
+“Galti meri thi,<br>
+par pyaar sach tha.<br>
+Aaj bhi tu meri duaon mein hai,<br>
+aur kal bhi rahegi.”
+</p>
+</section>
+
+<section>
+<h2>📸 Memories</h2>
+<div class="gallery">
+<img src="https://i.ibb.co/WvZCqXrJ/f050c675-8b43-4e06-be87-a6d71669c771-d146cfb7-252f-48cb-ba3c-9da826f0f173-2.jpg">
+<img src="https://i.ibb.co/xbLT1BP/Screenshot-20251227-063846-Photos.jpg">
+<img src="https://i.ibb.co/Txmdv3Kr/Screenshot-20251227-145012-Gallery.jpg">
+<img src="https://i.ibb.co/RkN4dd2P/Screenshot-20251227-145038-Gallery.jpg">
+</div>
+</section>
+
+<section>
+<h2>🎁 A Small Gift</h2>
+<div class="coupon-box">
+<div class="gift" onclick="openCoupon()">🎁</div>
+<div class="coupon" id="coupon">
+<h3>Coupon Code 💖</h3>
+<p><b>Valid for:</b> One long hug 🤍 & Unlimited momos 🥟</p>
+<p>Redeemable anytime. Lifetime validity.</p>
+</div>
+</div>
+</section>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+// TIMER
+const startDate = new Date("2023-10-01");
+setInterval(()=>{
+    const now = new Date();
+    const diff = now - startDate;
+    const days = Math.floor(diff / (1000*60*60*24));
+    document.getElementById("timer").innerText =
+    days + " days since everything changed.";
+},1000);
+
+// COUPON
+function openCoupon(){
+    document.getElementById("coupon").style.display="block";
+    for(let i=0;i<30;i++){
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=["red","pink","yellow"][Math.floor(Math.random()*3)];
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),3000);
+    }
+}
+</script>
+
+</body>
+</html>
